@@ -1,0 +1,22 @@
+<div class="timeline">
+  <ul>
+    <li *ngFor="let tmln of Tmlns; let i = index">
+      <div *ngIf="i % 2 == 0">
+        <div class="container left">
+          <div class="content">
+            <h2> {{ posts.title }} </h2>
+            <p>{{ posts.description }}</p>
+          </div>
+        </div>
+      </div>
+        <div *ngIf="i % 2 == 1">
+        <div class="container right ">
+          <div class="content">
+            <h2> {{ posts.title }} </h2>
+            <p>{{ posts.description }}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

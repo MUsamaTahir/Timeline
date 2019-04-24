@@ -1,3 +1,13 @@
 <main>
-    <h1>Hello welcome to maskers</h1>
+        <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                    <button mat-button routerLink='/' style="font-weight: bold"> Simple Timeline App </button>
+                    <button mat-button routerLink='/'> Home </button>
+                  <button mat-button > Add Timeline </button>
+                  <span class="spacer"></span>
+                  <button mat-button routerLink='/register'> Register </button>
+                  <button mat-button routerLink='/login'> Login </button>
+                </mat-toolbar-row>
+              </mat-toolbar>
 </main>
+<router-outlet></router-outlet>
