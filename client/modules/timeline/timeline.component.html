@@ -1,22 +1,30 @@
-<div class="timeline">
-  <ul>
-    <li *ngFor="let tmln of Tmlns; let i = index">
-      <div *ngIf="i % 2 == 0">
-        <div class="container left">
-          <div class="content">
-            <h2> {{ posts.title }} </h2>
-            <p>{{ posts.description }}</p>
-          </div>
-        </div>
+<div class="medium-list">
+  <div class="list-viewer-wrapper">
+    <div class="list-header-title">Add Timeline</div>
+
+    <form [formGroup]="timelineForm" (ngSubmit)="timelineForm.valid && onFormSubmit()" novalidate>
+      <div class="form-container">
+        <mat-form-field>
+          <input id="title"
+                 matInput
+                 formControlName="title"
+                 [(ngModel)]="timeline.title"
+                 placeholder="Enter title of post" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea id="description"
+                   matInput
+                   formControlName="description"
+                   [(ngModel)]="timeline.description"
+                   placeholder="Enter description of post (optional)"></textarea>
+          </mat-form-field>
+          
+          <button mat-button type="submit" 
+                  class="mat-raised-button mat-primary" 
+                  [disabled]="!timelineForm.valid">Add Timeline</button>
+          <button mat-button routerLink="/" class="divider">Cancel</button>
       </div>
-        <div *ngIf="i % 2 == 1">
-        <div class="container right ">
-          <div class="content">
-            <h2> {{ posts.title }} </h2>
-            <p>{{ posts.description }}</p>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
+    </form>
+  </div>
 </div>

@@ -19,7 +19,7 @@ router.get('/timeline', function(req, res,next) {
         offset: req.query.offset || null,
         order: [['id', 'DESC']]
     }).then(timeline => {
-        console.log("All timelines:", JSON.stringify(timeline, null, 4));
+       // console.log("All timelines:", JSON.stringify(timeline, null, 4));
         res.send(timeline); 
       });
     
@@ -97,7 +97,7 @@ router.delete('/timeline/:id', function(req, res) {
    
 });
 
-router.patch('/timeline/:id', function(req, res) {
+router.put('/timeline/:id', function(req, res) {
     const tid = req.params.id;
     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
    

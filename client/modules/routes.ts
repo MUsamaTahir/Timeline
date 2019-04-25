@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -9,7 +9,7 @@ import { AuthGuard } from './helpers/auth.helper';
 const routes: Routes = [
   {
     path: '',
-    component : TimelineComponent,
+    component : HomeComponent,
     canActivate: [AuthGuard]
   },
   {

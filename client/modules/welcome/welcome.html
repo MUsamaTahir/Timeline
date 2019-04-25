@@ -3,10 +3,18 @@
                 <mat-toolbar-row>
                     <button mat-button routerLink='/' style="font-weight: bold"> Simple Timeline App </button>
                     <button mat-button routerLink='/'> Home </button>
-                  <button mat-button > Add Timeline </button>
+                    <span *ngIf="userSignedIn()">
+                  <button mat-button routerLink='/timeline'> Add Timeline </button>
+                    </span>
                   <span class="spacer"></span>
+                  <span *ngIf="!userSignedIn()">
                   <button mat-button routerLink='/register'> Register </button>
-                  <button mat-button routerLink='/login'> Login </button>
+                  <button mat-button routerLink='/login' > Login </button>
+                </span>
+                <span *ngIf="userSignedIn()">
+                <button mat-button (click)="logout()" > Logout </button>
+              </span>
+
                 </mat-toolbar-row>
               </mat-toolbar>
 </main>

@@ -1,0 +1,20 @@
+<div class="timeline ">
+  <div *ngFor="let timeline of timelines; let i = index">
+    <div *ngIf="i % 2 === 0" >
+        <div class="container left">
+          <div class="content">
+            <h2> {{ timeline.title }} </h2>
+            <p>{{ timeline.description }}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="i % 2 === 1" >
+          <div class="container right">
+            <div class="content">
+              <h2> {{ timeline.title }} </h2>
+              <p>{{ timeline.description }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

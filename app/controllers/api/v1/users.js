@@ -35,9 +35,7 @@ module.exports = function (router) {
                 userData.password=hash
                 global.db.Users.create(userData)
                     .then(user => {
-                        let Token =  jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                            expiresIn: 1440
-                        })
+                        let Token =  jwt.sign(user.dataValues, process.env.SECRET_KEY)
                         res.json({ token: Token})
                     })
                         .catch (err => {
@@ -62,9 +60,7 @@ router.post('/login',function(req, res) {
   })
       .then(user => {
       if (bcrypt.compareSync (req.body.password, user.password)){
-          let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-              expiresIn: 1440
-          })
+          let token = jwt.sign(user.dataValues, process.env.SECRET_KEY)
           res.json({ message: 'User logged in....',
       token: token})
       }
