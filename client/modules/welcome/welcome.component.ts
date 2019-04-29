@@ -27,8 +27,7 @@ export class WelcomeComponent implements OnInit {
    }
   }
 
-  public logout()
-  {
+  public logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

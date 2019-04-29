@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MaterialModule } from './material.module';
 import { TimelineComponent } from './timeline/timeline.component';
+import { EditTimelineComponent } from './editTimeline/editTimeline.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 
@@ -21,7 +22,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     RegisterComponent,
     TimelineComponent,
     WelcomeComponent,
-    HomeComponent
+    HomeComponent,
+    EditTimelineComponent
   ],
   imports: [
     BrowserModule,

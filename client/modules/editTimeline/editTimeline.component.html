@@ -1,0 +1,32 @@
+<div class="medium-list">
+  <div class="list-viewer-wrapper">
+    <div class="list-header-title">Edit Timeline</div>
+
+    <form [formGroup]="editForm" (ngSubmit)="editForm.valid && onSubmit()" novalidate>
+      <div class="form-container">
+        <mat-form-field>
+          <input id="title"
+                 value={{timelines.title}}
+                 matInput
+                 formControlName="title"
+                 [(ngModel)]="timeline.title"
+                 placeholder="" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea id="description"
+                      value={{timelines.description}}
+                   matInput
+                   formControlName="description"
+                   [(ngModel)]="timeline.description"
+                   placeholder=""></textarea>
+          </mat-form-field>
+          
+          <button mat-button type="submit" 
+                  class="mat-raised-button mat-primary" 
+                  [disabled]="!editForm.valid">Update</button>
+          <button mat-button routerLink="/" class="divider">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

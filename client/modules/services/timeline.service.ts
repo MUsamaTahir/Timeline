@@ -19,16 +19,18 @@ getAll() {
 getTimeline() {
     return this.http.get<Timeline[]>(`${this.apiUrl}/timelines/timeline`);
 }
-
+getTimelineById(id: Number){
+    return this.http.get<Timeline[]>(`${this.apiUrl}/timelines/timeline/${id}`);
+}
 addTimeline(timeline: Timeline) {
     return this.http.post(`${this.apiUrl}/timelines/timeline`, timeline);
 }
 
-updateTimeline(timeline: Timeline) {
-    return this.http.put(`${this.apiUrl}/timelines/timeline/${timeline.id}`, timeline);
+updateTimeline(id:Number, timeline: Timeline) {
+    return this.http.put(`${this.apiUrl}/timelines/timeline/${id}`, timeline);
 }
 
-deleteTimeline(id: number) {
+deleteTimeline(id: Number) {
     return this.http.delete(`${this.apiUrl}/timelines/timeline/${id}`);
 }
 }

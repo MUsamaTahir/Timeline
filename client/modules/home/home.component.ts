@@ -36,5 +36,19 @@ export class HomeComponent implements OnInit {
             console.log(error);
         });
   }
+
+  public deleteTimeline(id: Number){
+    this.timelineService.deleteTimeline(id).pipe(first())
+    .subscribe(
+        data => {
+            console.log(data);
+            this.router.navigate(['/']);
+          },
+        error => {
+            console.log(error);
+        });
+
+  }
+
  
 }

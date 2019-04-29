@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AuthGuard } from './helpers/auth.helper';
+import { EditTimelineComponent } from './editTimeline/editTimeline.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'timeline',
     component: TimelineComponent, 
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit/:id',
+    component: EditTimelineComponent, 
     canActivate: [AuthGuard]
   }
 ];

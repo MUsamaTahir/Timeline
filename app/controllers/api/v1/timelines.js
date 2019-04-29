@@ -25,6 +25,35 @@ router.get('/timeline', function(req, res,next) {
     
 });
 
+router.get('/timeline/:id', function(req, res,next) {
+    var tid = req.params.id;   
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+    global.db.Users.findOne({
+        where: {
+            id: decoded.id,
+        }
+    })
+    .then(user => {
+        if (user) {
+                global.db.Timelines.findOne({
+                    where: {id: tid,
+                    userId: decoded.id
+                    }
+                }).then(timeline => {
+                // console.log("All timelines:", JSON.stringify(timeline, null, 4));
+                    res.send(timeline); 
+                });
+            }
+            else {
+                res.send('User does not exist')
+            }
+        })
+        .catch(err => {
+            res.send('error: '+ err)
+        })
+    
+});
+
 router.post('/timeline', function(req, res) {
     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
     
