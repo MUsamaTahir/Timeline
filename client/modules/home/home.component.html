@@ -1,7 +1,7 @@
 <div class="timeline ">
   <div *ngFor="let timeline of timelines; let i = index " >
-    <div *ngIf="i % 2 === 0" >
-        <div class="mycontainer left">
+    <div>
+        <div [ngClass]="i % 2 === 0 ? 'left' : 'right'" class="mycontainer">
           <div class="mycontent">
             <h2> {{ timeline.title }} </h2>
             <p>{{ timeline.description }}</p>
@@ -12,17 +12,5 @@
             </div>
         </div>
       </div>
-      <div *ngIf="i % 2 === 1" >
-          <div class="mycontainer right">
-            <div class="mycontent">
-              <h2> {{ timeline.title }} </h2>
-              <p>{{ timeline.description }}</p>
-              <button type="button" class="btn btn-primary" routerLink="/edit/{{timeline.id}}">Edit</button>
-              <button type="button" class="btn btn-danger" (click)="deleteTimeline(timeline.id)" >
-                  Delete
-                </button>
-            </div>
-          </div>
-        </div>
     </div>
 </div>
