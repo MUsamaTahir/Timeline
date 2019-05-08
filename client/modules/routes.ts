@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'edit/:id',
     component: EditTimelineComponent, 
     canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    component: HomeComponent, 
   }
 ];
 

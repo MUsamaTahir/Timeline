@@ -3,6 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 var path = require('path');
 
 module.exports = {
@@ -69,12 +70,14 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = false;
   module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        pure_funcs: ['console.log', 'window.console.log.apply']
-      },
-      mangle: false
+    new UglifyJsPlugin({
+    uglifyOptions: {
+    warnings: false,
+    ie8: false,
+    output: {
+    comments: false
+    }
+    }
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new CompressionPlugin({
