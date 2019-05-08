@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Timeline } from '../models/Timeline.model';
+import { Timeline } from '../models/timeline.model';
 
 
 @Injectable({
