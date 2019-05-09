@@ -30,6 +30,6 @@
     }
   },
   "app": {
-    "url": "http://localhost"
+    "url": "/"
   }
 }

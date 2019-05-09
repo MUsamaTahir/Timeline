@@ -7,7 +7,7 @@ import { Timeline } from '../models/timeline.model';
   providedIn: 'root'
 })
 export class TimelineService {
-    apiUrl = "http://localhost:8000/api/v1";
+    apiUrl = "/api/v1";
 
   constructor(private http:HttpClient) {  }
 

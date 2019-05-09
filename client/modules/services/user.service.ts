@@ -6,7 +6,7 @@ import { User } from '../models/user.model';
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-    apiUrl = "http://localhost:8000/api/v1";
+    apiUrl = "/api/v1";
     constructor(private http: HttpClient) { }
 
     getAll() {
