@@ -86,6 +86,13 @@ if (process.env.NODE_ENV === 'production') {
       test: /\.js$|\.html$/,
       threshold: 10240,
       minRatio: 0
-    })
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options : {
+      htmlLoader : {
+      minimize : false
+      }
+      }
+      })
   ])
 }
